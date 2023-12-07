@@ -1,0 +1,95 @@
+
+buildscript {
+    ext {
+        queryDslVersion = "5.0.0"
+    }
+}
+
+
+plugins {
+    id 'org.springframework.boot' version '2.7.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'org.zerock'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.1.0'
+
+    implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+
+    annotationProcessor(
+
+            "javax.persistence:javax.persistence-api",
+
+            "javax.annotation:javax.annotation-api",
+
+            "com.querydsl:querydsl-apt:${queryDslVersion}:jpa")
+
+
+    implementation 'org.modelmapper:modelmapper:3.1.0'
+
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.1.0'
+
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
+    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+
+    implementation 'net.coobird:thumbnailator:0.4.16'
+
+
+    // 스프링 시큐리티 관련 (id는 user, password는 로그 파일에 나오는 security password
+    // 스프링 시큐리티는 별도의 설정이 없을 때 모든 자원에 필요한 권한이나 로그인 여부 등을 확인함
+
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+
+    // Thymeleaf에서 인증 정보 처리를 위한 Thymeleaf에서-Spring Security 라이브러리
+
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+
+
+    //카카오 로그인(oauth2) 관련 라이브러리
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ["$projectDir/src/main/java", "$projectDir/build/generated"]
+        }
+    }
+}
