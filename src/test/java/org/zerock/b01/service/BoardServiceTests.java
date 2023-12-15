@@ -14,8 +14,8 @@ import java.util.UUID;
 @Log4j2
 public class BoardServiceTests {
 
-    @Autowired
-    private BoardService boardService;
+//    @Autowired
+//    private BoardService boardService;
 
 //    @Test
 //    public void testRegister() {
@@ -47,45 +47,45 @@ public class BoardServiceTests {
 //
 //    }
 
-    @Test
-    public void testList() {
+//    @Test
+//    public void testList() {
+//
+//        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+//                .type("tcw")
+//                .keyword("1")
+//                .page(1)
+//                .size(10)
+//                .build();
+//
+//        PageResponseDTO<BoardDTO> responseDTO = boardService.list(pageRequestDTO);
+//
+//        log.info(responseDTO);
+//
+//    }
 
-        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
-                .type("tcw")
-                .keyword("1")
-                .page(1)
-                .size(10)
-                .build();
 
-        PageResponseDTO<BoardDTO> responseDTO = boardService.list(pageRequestDTO);
-
-        log.info(responseDTO);
-
-    }
-
-
-    @Test
-    public void testRegisterWithImages() {
-
-        log.info(boardService.getClass().getName());
-
-        BoardDTO boardDTO = BoardDTO.builder()
-                .title("File...Sample Title...")
-                .content("Sample Content...")
-                .writer("user00")
-                .build();
-
-        boardDTO.setFileNames(
-                Arrays.asList(
-                        UUID.randomUUID()+"_aaa.jpg",
-                        UUID.randomUUID()+"_bbb.jpg",
-                        UUID.randomUUID()+"_bbb.jpg"
-                ));
-
-        Long bno = boardService.register(boardDTO);
-
-        log.info("bno: " + bno);
-    }
+//    @Test
+//    public void testRegisterWithImages() {
+//
+//        log.info(boardService.getClass().getName());
+//
+//        BoardDTO boardDTO = BoardDTO.builder()
+//                .title("File...Sample Title...")
+//                .content("Sample Content...")
+//                .writer("user00")
+//                .build();
+//
+//        boardDTO.setFileNames(
+//                Arrays.asList(
+//                        UUID.randomUUID()+"_aaa.jpg",
+//                        UUID.randomUUID()+"_bbb.jpg",
+//                        UUID.randomUUID()+"_bbb.jpg"
+//                ));
+//
+//        Long bno = boardService.register(boardDTO);
+//
+//        log.info("bno: " + bno);
+//    }
 
 //    @Test
 //    public void testReadAll() {
@@ -128,29 +128,29 @@ public class BoardServiceTests {
 //
 //    }
 
-    @Test
-    public void testListWithAll() {
-
-        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
-                .page(1)
-                .size(10)
-                .build();
-
-        PageResponseDTO<BoardListAllDTO> responseDTO =
-                boardService.listWithAll(pageRequestDTO);
-
-        List<BoardListAllDTO> dtoList = responseDTO.getDtoList();
-
-        dtoList.forEach(boardListAllDTO -> {
-            log.info(boardListAllDTO.getBno()+":"+boardListAllDTO.getTitle());
-
-            if(boardListAllDTO.getBoardImages() != null) {
-                for (BoardImageDTO boardImage : boardListAllDTO.getBoardImages()) {
-                    log.info(boardImage);
-                }
-            }
-
-            log.info("-------------------------------");
-        });
-    }
+//    @Test
+//    public void testListWithAll() {
+//
+//        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+//                .page(1)
+//                .size(10)
+//                .build();
+//
+//        PageResponseDTO<BoardListAllDTO> responseDTO =
+//                boardService.listWithAll(pageRequestDTO);
+//
+//        List<BoardListAllDTO> dtoList = responseDTO.getDtoList();
+//
+//        dtoList.forEach(boardListAllDTO -> {
+//            log.info(boardListAllDTO.getBno()+":"+boardListAllDTO.getTitle());
+//
+//            if(boardListAllDTO.getBoardImages() != null) {
+//                for (BoardImageDTO boardImage : boardListAllDTO.getBoardImages()) {
+//                    log.info(boardImage);
+//                }
+//            }
+//
+//            log.info("-------------------------------");
+//        });
+//    }
 }

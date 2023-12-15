@@ -10,8 +10,8 @@ import org.zerock.b01.dto.ReplyDTO;
 @Log4j2
 public class ReplyServiceTests {
 
-    @Autowired
-    private ReplyService replyService;
+//    @Autowired
+//    private ReplyService replyService;
 
 //    @Test
 //    public void testRegister() {

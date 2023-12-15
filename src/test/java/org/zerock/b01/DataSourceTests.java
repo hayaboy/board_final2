@@ -15,8 +15,8 @@ import java.sql.SQLException;
 @Log4j2
 public class DataSourceTests {
 
-    @Autowired
-    private DataSource dataSource;
+//    @Autowired
+//    private DataSource dataSource;
 
 //    @Test
 //    public void testConnection() throws SQLException {
