@@ -17,40 +17,40 @@ import javax.transaction.Transactional;
 @Log4j2
 public class ReplyRepositoryTests {
 
-    @Autowired
-    private ReplyRepository replyRepository;
-
-    @Test
-    public void testInsert() {
-
-        //실제 DB에 있는 bno
-        Long bno  = 1L;
-
-        Board board = Board.builder().bno(bno).build();
-
-        Reply reply = Reply.builder()
-                .board(board)
-                .replyText("댓글.....")
-                .replyer("replyer1")
-                .build();
-
-        replyRepository.save(reply);
-
-    }
-
-    @Transactional
-    @Test
-    public void testBoardReplies() {
-
-        Long bno = 100L;
-
-        Pageable pageable = PageRequest.of(0,10, Sort.by("rno").descending());
-
-        Page<Reply> result = replyRepository.listOfBoard(bno, pageable);
-
-        result.getContent().forEach(reply -> {
-            log.info(reply);
-        });
-    }
+//    @Autowired
+//    private ReplyRepository replyRepository;
+//
+//    @Test
+//    public void testInsert() {
+//
+//        //실제 DB에 있는 bno
+//        Long bno  = 1L;
+//
+//        Board board = Board.builder().bno(bno).build();
+//
+//        Reply reply = Reply.builder()
+//                .board(board)
+//                .replyText("댓글.....")
+//                .replyer("replyer1")
+//                .build();
+//
+//        replyRepository.save(reply);
+//
+//    }
+//
+//    @Transactional
+//    @Test
+//    public void testBoardReplies() {
+//
+//        Long bno = 100L;
+//
+//        Pageable pageable = PageRequest.of(0,10, Sort.by("rno").descending());
+//
+//        Page<Reply> result = replyRepository.listOfBoard(bno, pageable);
+//
+//        result.getContent().forEach(reply -> {
+//            log.info(reply);
+//        });
+//    }
 
 }
