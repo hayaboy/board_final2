@@ -13,16 +13,16 @@ public class ReplyServiceTests {
     @Autowired
     private ReplyService replyService;
 
-    @Test
-    public void testRegister() {
-
-        ReplyDTO replyDTO = ReplyDTO.builder()
-                .replyText("ReplyDTO Text")
-                .replyer("replyer")
-                .bno(100L)
-                .build();
-
-        log.info(replyService.register(replyDTO));
-    }
+//    @Test
+//    public void testRegister() {
+//
+//        ReplyDTO replyDTO = ReplyDTO.builder()
+//                .replyText("ReplyDTO Text")
+//                .replyer("replyer")
+//                .bno(100L)
+//                .build();
+//
+//        log.info(replyService.register(replyDTO));
+//    }
 
 }

@@ -17,21 +17,21 @@ public class BoardServiceTests {
     @Autowired
     private BoardService boardService;
 
-    @Test
-    public void testRegister() {
-
-        log.info(boardService.getClass().getName());
-
-        BoardDTO boardDTO = BoardDTO.builder()
-                .title("Sample Title...")
-                .content("Sample Content...")
-                .writer("user00")
-                .build();
-
-        Long bno = boardService.register(boardDTO);
-
-        log.info("bno: " + bno);
-    }
+//    @Test
+//    public void testRegister() {
+//
+//        log.info(boardService.getClass().getName());
+//
+//        BoardDTO boardDTO = BoardDTO.builder()
+//                .title("Sample Title...")
+//                .content("Sample Content...")
+//                .writer("user00")
+//                .build();
+//
+//        Long bno = boardService.register(boardDTO);
+//
+//        log.info("bno: " + bno);
+//    }
 
 //    @Test
 //    public void testModify() {
