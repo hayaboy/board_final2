@@ -17,35 +17,35 @@ import java.util.stream.IntStream;
 public class MemberRepositoryTests {
 
 
-    @Autowired
-    private MemberRepository memberRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Test
-    public void insertMembers(){
-
-
-        IntStream.rangeClosed(1,100).forEach(i->{
-
-            Member member = Member.builder()
-                    .mid("member"+i)
-                    .mpw(passwordEncoder.encode("1111"))
-                    .email("email"+i+"@aaa.bbb")
-                    .build();
-
-            member.addRole(MemberRole.USER);
-
-            if(i >= 90){
-                member.addRole(MemberRole.ADMIN);
-            }
-
-            memberRepository.save(member);
-
-        });
-
-    }
+//    @Autowired
+//    private MemberRepository memberRepository;
+//
+//    @Autowired
+//    private PasswordEncoder passwordEncoder;
+//
+//    @Test
+//    public void insertMembers(){
+//
+//
+//        IntStream.rangeClosed(1,100).forEach(i->{
+//
+//            Member member = Member.builder()
+//                    .mid("member"+i)
+//                    .mpw(passwordEncoder.encode("1111"))
+//                    .email("email"+i+"@aaa.bbb")
+//                    .build();
+//
+//            member.addRole(MemberRole.USER);
+//
+//            if(i >= 90){
+//                member.addRole(MemberRole.ADMIN);
+//            }
+//
+//            memberRepository.save(member);
+//
+//        });
+//
+//    }
 //
 //    @Test
 //    public void testRead() {
