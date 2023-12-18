@@ -17,6 +17,16 @@ import java.util.stream.IntStream;
 @Log4j2
 public class SampleController {
 
+    @GetMapping("/")
+    public String index(Model model) {
+
+        log.info("index................");
+
+//        model.addAttribute("msg", "HELLO WORLD");
+//        return "redirect:/member/login";
+        return "redirect:/board/register";
+    }
+
     @GetMapping("/hello")
     public void hello(Model model) {
 

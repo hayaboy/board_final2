@@ -54,7 +54,7 @@ public class CustomSecurityConfig {
         httpSecurity.csrf().disable();
 
         //rememberMe() : Allows configuring of Remember Me authentication.
-        httpSecurity.rememberMe().key("12345678").tokenRepository(persistentTokenRepository()).userDetailsService(userDetailsService) .tokenValiditySeconds(60*60*24*30);
+        httpSecurity.rememberMe().key("12345678").tokenRepository(persistentTokenRepository()).userDetailsService(userDetailsService).tokenValiditySeconds(60*60*24*30);
 
 
         httpSecurity.exceptionHandling().accessDeniedHandler(accessDeniedHandler());  //403
